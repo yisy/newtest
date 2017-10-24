@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% block title %}{% endblock %}</title>
+</head>
+<body>
+{% if current_user.is_authenticated %}
+欢迎您！{{current_user.username}}
+{% endif %}
+{%block content %}{%  endblock %}
+</body>
+</html>

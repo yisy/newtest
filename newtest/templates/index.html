@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %} 首页 {% endblock %}
+{% block content %}
+    
+    hello world
+    {% for i in images %}
+    <a href="/detail/{{i.id}}">
+        <div style="width: 200;height: 300;">
+            <h4>user:</h4>{{i.user.username}} &nbsp;&nbsp;&nbsp;&nbsp;<h4>url:</h4>{{i.url}} <br/>
+            <h4>created_time:</h4>{{i.created_time}} <br/>
+
+            评价：<br/>
+            
+            {% for c in i.comments %}
+                {% if loop.index >= 2 %}
+                {% break %}
+                {% endif %}
+                comment:{{c.content}}
+            {% endfor %}
+        </div><br/>
+    </a>
+    {% endfor %}
+
+    {% if p != 1 %}
+    <a href="/index/{{p - 1}}"><h4>上一页</h4>    
+    {% endif %}
+
+    {% if hasNext == True %}
+        <a href="/index/{{p + 1}}"><h4>下一页</h4></a>
+    {% endif %}
+
+{%endblock%}

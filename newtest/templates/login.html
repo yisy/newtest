@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %} 登陆注册 {% endblock %}
+{% block content %}
+
+<form id = "reloginform" method='post'>
+    {% if (msg | length > 0) %}
+        {{msg}}
+    {% endif %}
+
+    用户名：<input type="text" name="username"> </p>
+    密码：<input type="text" name="password">  </p>
+    <input type="submit"  onclick="form=document.getElementById('reloginform');
+        form.action='/reg/';"  value="注册">
+    <input type="submit" onclick="form=document.getElementById('reloginform');
+        form.action='/login/';" value="登陆">
+</form>
+
+{% endblock %}
